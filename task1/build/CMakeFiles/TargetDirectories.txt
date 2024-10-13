@@ -1,0 +1,3 @@
+C:/Users/Екатерина/Documents/Nikitosik/aaa/build_new/CMakeFiles/MaxValueFinder.dir
+C:/Users/Екатерина/Documents/Nikitosik/aaa/build_new/CMakeFiles/edit_cache.dir
+C:/Users/Екатерина/Documents/Nikitosik/aaa/build_new/CMakeFiles/rebuild_cache.dir
