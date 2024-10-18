@@ -1,37 +1,32 @@
-#include "../inc/fMax.h"
+#include "fMax.h"
 #include <stdlib.h>
 #include <limits.h>
-#include <ctype.h> // Для функции isdigit
-#include <stdbool.h> // Для использования bool, true, false
+#include <ctype.h>  // Для isdigit
+#include <stdbool.h>  // Для bool, true, false
 
-bool errorflag_sintax = false; // Инициализация флагов
-bool errorflag_empty = false;   // Инициализация флагов
+bool errorflag_syntax = false;  // Флаг синтаксической ошибки
+bool errorflag_empty = false;   // Флаг пустого файла
 
 /**
- * @brief Реализует функцию fMax.
+ * @brief Функция для нахождения максимального значения.
  *
- * Эта функция читает строки из файла и пытается преобразовать
- * их в целые числа, чтобы найти максимальное значение. Если
- * встречается некорректный синтаксис, устанавливается флаг
- * errorflag_sintax. Если файл пустой, устанавливается
- * errorflag_empty.
- *
- * @param file Указатель на файл, из которого читаются числа.
- * @return int Максимальное значение из файла.
+ * @param file Указатель на файл
+ * @return double Максимальное значение
  */
-int fMax(FILE *file)
+double fMax(FILE* file)
 {
-    int max_value = INT_MIN;    // Инициализация максимального значения
-    int current_value;           // Текущее значение
-    int has_numbers = 0;         // Флаг наличия чисел
-    char current_str[20];        // Строка для хранения текущего значения
+    double max_value = -__DBL_MAX__;  // Минимальное значение для double
+    double current_value;
+    int has_numbers = 0;  // Флаг наличия чисел
+    char current_str[20];
 
+    // Чтение строки из файла
     while (fscanf(file, "%s", current_str) == 1)
     {
-        int is_number = 1; // Предполагаем, что в current_str число
+        int is_number = 1;
         for (int i = 0; current_str[i] != '\0'; i++)
         {
-            if (!isdigit(current_str[i]) && !(i == 0 && current_str[i] == '-')) // Проверка на отрицательное число
+            if (!isdigit(current_str[i]) && !(i == 0 && current_str[i] == '-')) // Проверка отрицательных чисел
             {
                 is_number = 0;
                 break;
@@ -40,26 +35,24 @@ int fMax(FILE *file)
 
         if (!is_number)
         {
-            errorflag_sintax = true;
+            errorflag_syntax = true;
             return 0;
         }
 
-        current_value = atoi(current_str); // Преобразование строки в число
+        current_value = atof(current_str);  // Преобразование строки в double
 
         if (current_value > max_value)
         {
-            max_value = current_value; // Обновление максимального значения
+            max_value = current_value;
         }
         has_numbers = 1;
     }
 
-    if (has_numbers)
+    if (!has_numbers)
     {
-        return max_value; // Возвращаем максимальное значение
+        errorflag_empty = true;
+        return 0;
     }
-    else
-    {
-        errorflag_empty = true; // Установка флага пустого файла
-    }
-    return 0; // Возвращаем 0, если файла нет
+
+    return max_value;
 }
