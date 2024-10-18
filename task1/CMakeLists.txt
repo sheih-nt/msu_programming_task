@@ -1,21 +1,19 @@
-# Указываем минимальную версию CMake
 cmake_minimum_required(VERSION 3.10)
-
-# Указываем название проекта
 project(MaxValueFinder)
 
-# Указываем стандарт языка C
 set(CMAKE_C_STANDARD 99)
 
-# Указываем пути к заголовочным файлам
+# Заголовочные файлы
 include_directories(inc)
 
-# Указываем, какие файлы будут частью проекта
-set(SOURCES
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/main.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/fMax.c"
-)
+# Основная программа для задачи 1
+add_executable(task1_program src/main.c src/fMax.c)
+target_compile_definitions(task1_program PRIVATE TASK1=1)
 
+# Основная программа для задачи 2
+add_executable(task2_program src/main.c src/fMax.c)
+target_compile_definitions(task2_program PRIVATE TASK2=1)
 
-# Создание исполняемого файла
-add_executable(MaxValueFinder ${SOURCES})
+# Программа для самотестирования (тесты для задачи 1 и 2)
+add_executable(test_suite src/main.c src/fMax.c)
+target_compile_definitions(test_suite PRIVATE SELFTEST=1 TASK1=1 TASK2=1)
