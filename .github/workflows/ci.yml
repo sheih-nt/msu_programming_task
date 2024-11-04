@@ -1,27 +1,28 @@
-name: CMake Build and Test
+name: Build and Run
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Проверка кода
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Установка CMake
-      uses: jwlawson/actions-setup-cmake@v1
-      with:
-        cmake-version: '3.24.2'  # Укажите версию CMake, которую хотите использовать
+      - name: Install dependencies
+        run: sudo apt-get install -y cmake
 
-    - name: Конфигурация сборки
-      run: cmake -S MaxValueFinder -B MaxValueFinder/build
+      - name: Build
+        run: |
+          cmake -S . -B build
+          cmake --build build
 
-    - name: Сборка проекта
-      run: cmake --build MaxValueFinder/build
-
-    - name: Запуск тестов
-      run: |
-        cd MaxValueFinder/build
-        ctest
+      - name: Run tests
+        run: |
+          cd build
+          ctest
