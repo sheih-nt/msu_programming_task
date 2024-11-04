@@ -13,10 +13,10 @@ jobs:
     - name: Установка CMake
       uses: jwlawson/actions-setup-cmake@v1
       with:
-        cmake-version: '3.10'  # Укажите версию CMake, которую хотите использовать
+        cmake-version: '3.24.2'  # Укажите версию CMake, которую хотите использовать
 
     - name: Конфигурация сборки
-      run: cmake -S MaxValueFinder -B MaxValueFinder/build  # Укажите путь к CMakeLists.txt
+      run: cmake -S MaxValueFinder -B MaxValueFinder/build
 
     - name: Сборка проекта
       run: cmake --build MaxValueFinder/build
