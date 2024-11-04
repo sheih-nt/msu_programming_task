@@ -7,21 +7,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Проверка кода
       uses: actions/checkout@v3
 
-    - name: Set up CMake
-      uses: crazy-max/ghaction-setup-cmake@v3
+    - name: Установка CMake
+      uses: jwlawson/actions-setup-cmake@v1
       with:
-        cmake-version: '3.24.2'  # Убедитесь, что используете последнюю стабильную версию CMake
+        cmake-version: '3.24.2'  # Укажите версию CMake, которую хотите использовать
 
-    - name: Configure the build
-      run: cmake -S MaxValueFinder -B MaxValueFinder/build  # Указываем путь к CMakeLists.txt
+    - name: Конфигурация сборки
+      run: cmake -S MaxValueFinder -B MaxValueFinder/build  # Укажите путь к CMakeLists.txt
 
-    - name: Build the project
+    - name: Сборка проекта
       run: cmake --build MaxValueFinder/build
 
-    - name: Run tests
+    - name: Запуск тестов
       run: |
         cd MaxValueFinder/build
         ctest
