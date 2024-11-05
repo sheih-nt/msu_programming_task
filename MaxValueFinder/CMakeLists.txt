@@ -19,13 +19,8 @@ target_compile_options(test_suite PRIVATE -g --coverage)
 target_link_libraries(test_suite PRIVATE gcov)
 
 # Копирование тестовых файлов в директорию сборки
-file(COPY ${CMAKE_SOURCE_DIR}/test/global/test1.txt DESTINATION ${CMAKE_BINARY_DIR}/test)
-file(COPY ${CMAKE_SOURCE_DIR}/test/global/test2.txt DESTINATION ${CMAKE_BINARY_DIR}/test)
-file(COPY ${CMAKE_SOURCE_DIR}/test/task_empty_file/test_empty.txt DESTINATION ${CMAKE_BINARY_DIR}/test)
-file(COPY ${CMAKE_SOURCE_DIR}/test/task_invalid_syntax/test_invalid.txt DESTINATION ${CMAKE_BINARY_DIR}/test)
-
-# Настройка тестов
-enable_testing()
-
-# Добавьте тесты, указав, как их запускать
-add_test(NAME TestSuite COMMAND test_suite)
+file(COPY ${CMAKE_SOURCE_DIR}/test/global/test1.txt DESTINATION ${CMAKE_BINARY_DIR}/test/global)
+file(COPY ${CMAKE_SOURCE_DIR}/test/global/test2a.txt DESTINATION ${CMAKE_BINARY_DIR}/test/global)
+file(COPY ${CMAKE_SOURCE_DIR}/test/global/test_empty.txt DESTINATION ${CMAKE_BINARY_DIR}/test/global)
+file(COPY ${CMAKE_SOURCE_DIR}/test/global/test_invalid.txt DESTINATION ${CMAKE_BINARY_DIR}/test/global)
+file(COPY ${CMAKE_SOURCE_DIR}/test/test_float_edge_cases.txt DESTINATION ${CMAKE_BINARY_DIR}/test)
