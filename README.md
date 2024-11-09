@@ -5,4 +5,4 @@
 
 
 ## Задачи
-* (Задача 1)[https://github.com/sheih-nt/msu_programming_task/tree/main/MaxValueFinder]: DONE
+* [Задача 1](https://github.com/sheih-nt/msu_programming_task/tree/main/MaxValueFinder): DONE
