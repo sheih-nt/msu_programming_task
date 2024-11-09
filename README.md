@@ -4,5 +4,5 @@
 Всего 8 задач. 
 
 
-## Задачи
+### Задачи
 * [Задача 1](https://github.com/sheih-nt/msu_programming_task/tree/main/MaxValueFinder): DONE
