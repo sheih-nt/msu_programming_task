@@ -1,4 +1,4 @@
-#include "MaxValueFinder.h"
+#include "MaxFinderValue.h"
 #include <stdlib.h>
 #include <float.h>
 
