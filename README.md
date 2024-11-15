@@ -7,3 +7,4 @@
 
 ### Задачи
 * [Задача 1](https://github.com/sheih-nt/msu_programming_task/tree/main/MaxValueFinder) Найти максимальное значение: DONE
+* [Задача 2](https://github.com/sheih-nt/msu_programming_task/tree/main/PressureCheck) Разность давлений: DONE
