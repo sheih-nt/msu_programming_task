@@ -27,3 +27,4 @@ file(COPY ${CMAKE_SOURCE_DIR}/test/global/test2a.txt DESTINATION ${CMAKE_BINARY_
 file(COPY ${CMAKE_SOURCE_DIR}/test/global/test_empty.txt DESTINATION ${CMAKE_BINARY_DIR}/test/global)
 file(COPY ${CMAKE_SOURCE_DIR}/test/global/test_invalid.txt DESTINATION ${CMAKE_BINARY_DIR}/test/global)
 file(COPY ${CMAKE_SOURCE_DIR}/test/test_float_edge_cases.txt DESTINATION ${CMAKE_BINARY_DIR}/test)
+
